@@ -31,8 +31,8 @@ namespace Spend_Smart
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.LoginBtn = new System.Windows.Forms.Button();
+            this.RegisterBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -55,50 +55,50 @@ namespace Spend_Smart
             this.label1.TabIndex = 6;
             this.label1.Text = "SPEND SMART";
             // 
-            // button3
+            // LoginBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(314, 344);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(5);
-            this.button3.Size = new System.Drawing.Size(178, 34);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "LOGIN";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
+            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.LoginBtn.Location = new System.Drawing.Point(314, 344);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Padding = new System.Windows.Forms.Padding(5);
+            this.LoginBtn.Size = new System.Drawing.Size(178, 34);
+            this.LoginBtn.TabIndex = 7;
+            this.LoginBtn.Text = "LOGIN";
+            this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
-            // button4
+            // RegisterBtn
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.button4.Location = new System.Drawing.Point(314, 384);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(5);
-            this.button4.Size = new System.Drawing.Size(178, 35);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "REGISTER";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.RegisterBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
+            this.RegisterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegisterBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.RegisterBtn.Location = new System.Drawing.Point(314, 384);
+            this.RegisterBtn.Name = "RegisterBtn";
+            this.RegisterBtn.Padding = new System.Windows.Forms.Padding(5);
+            this.RegisterBtn.Size = new System.Drawing.Size(178, 35);
+            this.RegisterBtn.TabIndex = 8;
+            this.RegisterBtn.Text = "REGISTER";
+            this.RegisterBtn.UseVisualStyleBackColor = false;
+            this.RegisterBtn.Click += new System.EventHandler(this.Registerbtn_Click);
             // 
-            // Form1
+            // FirstForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 461);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.RegisterBtn);
+            this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "FirstForm";
             this.Text = "Spend Smart - Welcome";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -109,8 +109,8 @@ namespace Spend_Smart
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button LoginBtn;
+        private System.Windows.Forms.Button RegisterBtn;
     }
 }
 

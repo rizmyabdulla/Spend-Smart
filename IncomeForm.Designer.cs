@@ -542,7 +542,7 @@
             this.pieChart1.Name = "pieChart1";
             this.pieChart1.Size = new System.Drawing.Size(287, 211);
             this.pieChart1.TabIndex = 10;
-            this.pieChart1.Total = null;
+            this.pieChart1.MaxValue = null;
             // 
             // IncomeForm
             // 

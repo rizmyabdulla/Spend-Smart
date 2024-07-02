@@ -20,6 +20,8 @@ namespace Spend_Smart
             InitializeComponent();
 
             SidebarNavigator(new DashboardForm(), DashboardBtn);
+
+            UsernameLabel.Text = "Welcome " + Properties.Settings.Default.Username + "!";
         }
 
         private void Form4_Load(object sender, EventArgs e)

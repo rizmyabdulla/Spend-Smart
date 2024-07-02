@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Spend_Smart
@@ -16,7 +13,22 @@ namespace Spend_Smart
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FirstForm());
+
+            int userId = Properties.Settings.Default.UserId;
+            string username = Properties.Settings.Default.Username;
+
+            Form startupForm = null;
+
+            if (userId != 0 && !string.IsNullOrEmpty(username))
+            {
+                startupForm = new MainForm();
+            }
+            else
+            {
+                startupForm = new FirstForm();
+            }
+
+            Application.Run(startupForm);
         }
     }
 }

@@ -22,30 +22,30 @@ namespace Spend_Smart
         {
             CenterControl(label1, horizontal: true, vertical: false);
             CenterControl(label2, horizontal: true, vertical: false);
-            CenterControl(button3, horizontal: true, vertical: false);
-            CenterControl(button4, horizontal: true, vertical: false);
+            CenterControl(LoginBtn, horizontal: true, vertical: false);
+            CenterControl(RegisterBtn, horizontal: true, vertical: false);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
             CenterControl(label1, horizontal: true, vertical: false);
             CenterControl(label2, horizontal: true, vertical: false);
-            CenterControl(button3, horizontal: true, vertical: false);
-            CenterControl(button4, horizontal: true, vertical: false);
+            CenterControl(LoginBtn, horizontal: true, vertical: false);
+            CenterControl(RegisterBtn, horizontal: true, vertical: false);
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-            LoginForm fm2 = new LoginForm();
-            fm2.Show();
+            LoginForm fm = new LoginForm();
+            fm.Show();
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Registerbtn_Click(object sender, EventArgs e)
         {
-            RegisterForm fm3 = new RegisterForm();
-            fm3.Show();
+            RegisterForm fm = new RegisterForm();
+            fm.Show();
             this.Hide();
         }
 

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Spend_Smart
 {
@@ -31,41 +28,39 @@ namespace Spend_Smart
             CenterControl(panel1, horizontal: true, vertical: true);
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-
+            if (ValidateLogin())
+            {
+                if (DBConnection())
+                {
+                    MainForm fm = new MainForm();
+                    fm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password!");
+                }
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void RegisterBtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MainForm fm4 = new MainForm();
-            fm4.Show();
+            RegisterForm fm = new RegisterForm();
+            fm.Show();
             this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        bool ValidateLogin()
         {
-            FirstForm fm1 = new FirstForm();
-            fm1.Show();
-            this.Hide();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            RegisterForm fm3 = new RegisterForm();
-            fm3.Show();
-            this.Hide();
+            if (string.IsNullOrWhiteSpace(UsernameField.Text) ||
+                string.IsNullOrWhiteSpace(PasswordField.Text))
+            {
+                MessageBox.Show("Please fill in every field!");
+                return false;
+            }
+            return true;
         }
 
         private void CenterControl(Control control, bool horizontal, bool vertical)
@@ -92,6 +87,68 @@ namespace Spend_Smart
 
             // Set the new position
             control.Location = new Point(newX, newY);
+        }
+
+        bool DBConnection()
+        {
+            string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
+            using (MySqlConnection connection = new MySqlConnection(conString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT id, fullName, email, password FROM users WHERE username = @username";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@username", UsernameField.Text);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string storedHashedPassword = reader["password"].ToString();
+                                string enteredHashedPassword = HashPassword(PasswordField.Text);
+
+                                if (storedHashedPassword == enteredHashedPassword)
+                                {
+                                    int userId = Convert.ToInt32(reader["id"]);
+                                    string fullName = reader["fullName"].ToString();
+                                    string email = reader["email"].ToString();
+
+                                    // Save session data to user settings
+                                    Properties.Settings.Default.UserId = userId;
+                                    Properties.Settings.Default.Username = UsernameField.Text;
+                                    Properties.Settings.Default.FullName = fullName;
+                                    Properties.Settings.Default.Email = email;
+                                    Properties.Settings.Default.Save();
+
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+            return false;
+        }
+
+
+        string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }

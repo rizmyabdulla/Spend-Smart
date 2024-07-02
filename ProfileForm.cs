@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Spend_Smart
 {
     public partial class ProfileForm : Form
     {
-
         public ProfileForm()
         {
             InitializeComponent();
@@ -20,9 +12,19 @@ namespace Spend_Smart
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            Form fm = new FirstForm();
+            // Clear session data
+            Properties.Settings.Default.UserId = 0;
+            Properties.Settings.Default.Username = string.Empty;
+            Properties.Settings.Default.FullName = string.Empty;
+            Properties.Settings.Default.Email = string.Empty;
+            Properties.Settings.Default.Save();
+
+
+            // Show FirstForm
+            FirstForm firstForm = new FirstForm();
             ActiveForm.Close();
-            fm.Show();
+            firstForm.Show();
+
         }
     }
 }

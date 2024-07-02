@@ -40,7 +40,7 @@ namespace Spend_Smart
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.UsernameLabel = new System.Windows.Forms.Label();
             this.AddSaving = new System.Windows.Forms.Button();
             this.AddIncome = new System.Windows.Forms.Button();
             this.AddExpense = new System.Windows.Forms.Button();
@@ -186,7 +186,7 @@ namespace Spend_Smart
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.UsernameLabel);
             this.panel2.Controls.Add(this.AddSaving);
             this.panel2.Controls.Add(this.AddIncome);
             this.panel2.Controls.Add(this.AddExpense);
@@ -207,16 +207,16 @@ namespace Spend_Smart
             this.label3.TabIndex = 6;
             this.label3.Text = "Date";
             // 
-            // label2
+            // UsernameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(12, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "WELCOME username!";
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.UsernameLabel.Location = new System.Drawing.Point(12, 15);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(131, 15);
+            this.UsernameLabel.TabIndex = 5;
+            this.UsernameLabel.Text = "WELCOME username!";
             // 
             // AddSaving
             // 
@@ -324,7 +324,7 @@ namespace Spend_Smart
         private System.Windows.Forms.Button BudgetsBtn;
         private System.Windows.Forms.Button DashboardBtn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Button AddSaving;
         private System.Windows.Forms.Button AddIncome;
         private System.Windows.Forms.Button AddExpense;
