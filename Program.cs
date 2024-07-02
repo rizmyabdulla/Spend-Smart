@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Spend_Smart
 {
@@ -14,21 +15,38 @@ namespace Spend_Smart
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            int userId = Properties.Settings.Default.UserId;
-            string username = Properties.Settings.Default.Username;
-
-            Form startupForm = null;
-
-            if (userId != 0 && !string.IsNullOrEmpty(username))
+            string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
+            try
             {
-                startupForm = new MainForm();
-            }
-            else
-            {
-                startupForm = new FirstForm();
-            }
+                using (MySqlConnection connection = new MySqlConnection(conString))
+                {
+                    connection.Open();
 
-            Application.Run(startupForm);
+                    int userId = Properties.Settings.Default.UserId;
+                    string username = Properties.Settings.Default.Username;
+
+                    Form startupForm;
+
+                    if (userId != 0 && !string.IsNullOrEmpty(username))
+                    {
+                        startupForm = new MainForm();
+                    }
+                    else
+                    {
+                        startupForm = new FirstForm();
+                    }
+
+                    Application.Run(startupForm);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Database connection error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
     }
 }

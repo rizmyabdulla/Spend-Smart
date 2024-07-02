@@ -70,5 +70,17 @@ namespace Spend_Smart.Properties {
                 this["Email"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PhoneNumber {
+            get {
+                return ((int)(this["PhoneNumber"]));
+            }
+            set {
+                this["PhoneNumber"] = value;
+            }
+        }
     }
 }

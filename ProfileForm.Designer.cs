@@ -31,22 +31,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.EmailField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.PhoneNumbField = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FullNameField = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.UserNameField = new System.Windows.Forms.TextBox();
+            this.ChangeBasicBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.ConfirmPasswordField = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.PasswordField = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.OldPasswordField = new System.Windows.Forms.TextBox();
+            this.ChangePasswordBtn = new System.Windows.Forms.Button();
             this.LogoutBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -65,21 +65,21 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.EmailField);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.PhoneNumbField);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.FullNameField);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.UserNameField);
+            this.groupBox1.Controls.Add(this.ChangeBasicBtn);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(19, 74);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(291, 246);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "BASIC";
+            this.groupBox1.Text = "BASIC INFO";
             // 
             // label5
             // 
@@ -91,16 +91,16 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "Email Address";
             // 
-            // textBox4
+            // EmailField
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(107, 156);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(167, 21);
-            this.textBox4.TabIndex = 22;
+            this.EmailField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.EmailField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EmailField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailField.ForeColor = System.Drawing.Color.Black;
+            this.EmailField.Location = new System.Drawing.Point(107, 156);
+            this.EmailField.Name = "EmailField";
+            this.EmailField.Size = new System.Drawing.Size(167, 21);
+            this.EmailField.TabIndex = 22;
             // 
             // label3
             // 
@@ -112,16 +112,16 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Phone Number";
             // 
-            // textBox3
+            // PhoneNumbField
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(107, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(167, 21);
-            this.textBox3.TabIndex = 20;
+            this.PhoneNumbField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.PhoneNumbField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PhoneNumbField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneNumbField.ForeColor = System.Drawing.Color.Black;
+            this.PhoneNumbField.Location = new System.Drawing.Point(107, 116);
+            this.PhoneNumbField.Name = "PhoneNumbField";
+            this.PhoneNumbField.Size = new System.Drawing.Size(167, 21);
+            this.PhoneNumbField.TabIndex = 20;
             // 
             // label2
             // 
@@ -133,16 +133,16 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Full Name";
             // 
-            // textBox1
+            // FullNameField
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(107, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 21);
-            this.textBox1.TabIndex = 18;
+            this.FullNameField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.FullNameField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FullNameField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullNameField.ForeColor = System.Drawing.Color.Black;
+            this.FullNameField.Location = new System.Drawing.Point(107, 77);
+            this.FullNameField.Name = "FullNameField";
+            this.FullNameField.Size = new System.Drawing.Size(167, 21);
+            this.FullNameField.TabIndex = 18;
             // 
             // label4
             // 
@@ -154,40 +154,41 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Username";
             // 
-            // textBox2
+            // UserNameField
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(107, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(167, 21);
-            this.textBox2.TabIndex = 15;
+            this.UserNameField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.UserNameField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UserNameField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameField.ForeColor = System.Drawing.Color.Black;
+            this.UserNameField.Location = new System.Drawing.Point(107, 38);
+            this.UserNameField.Name = "UserNameField";
+            this.UserNameField.Size = new System.Drawing.Size(167, 21);
+            this.UserNameField.TabIndex = 15;
             // 
-            // button1
+            // ChangeBasicBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(107, 206);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5);
-            this.button1.Size = new System.Drawing.Size(178, 34);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "CHANGE";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ChangeBasicBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
+            this.ChangeBasicBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeBasicBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeBasicBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.ChangeBasicBtn.Location = new System.Drawing.Point(107, 206);
+            this.ChangeBasicBtn.Name = "ChangeBasicBtn";
+            this.ChangeBasicBtn.Padding = new System.Windows.Forms.Padding(5);
+            this.ChangeBasicBtn.Size = new System.Drawing.Size(178, 34);
+            this.ChangeBasicBtn.TabIndex = 16;
+            this.ChangeBasicBtn.Text = "CHANGE";
+            this.ChangeBasicBtn.UseVisualStyleBackColor = false;
+            this.ChangeBasicBtn.Click += new System.EventHandler(this.ChangeBasicBtn_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.ConfirmPasswordField);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.PasswordField);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.OldPasswordField);
+            this.groupBox2.Controls.Add(this.ChangePasswordBtn);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(326, 74);
             this.groupBox2.Name = "groupBox2";
@@ -206,17 +207,17 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "Confirm password";
             // 
-            // textBox6
+            // ConfirmPasswordField
             // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.Black;
-            this.textBox6.Location = new System.Drawing.Point(122, 116);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(163, 21);
-            this.textBox6.TabIndex = 20;
-            this.textBox6.UseSystemPasswordChar = true;
+            this.ConfirmPasswordField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.ConfirmPasswordField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ConfirmPasswordField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmPasswordField.ForeColor = System.Drawing.Color.Black;
+            this.ConfirmPasswordField.Location = new System.Drawing.Point(122, 116);
+            this.ConfirmPasswordField.Name = "ConfirmPasswordField";
+            this.ConfirmPasswordField.Size = new System.Drawing.Size(154, 21);
+            this.ConfirmPasswordField.TabIndex = 20;
+            this.ConfirmPasswordField.UseSystemPasswordChar = true;
             // 
             // label8
             // 
@@ -228,16 +229,17 @@
             this.label8.TabIndex = 19;
             this.label8.Text = "New password";
             // 
-            // textBox7
+            // PasswordField
             // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.Black;
-            this.textBox7.Location = new System.Drawing.Point(122, 77);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(163, 21);
-            this.textBox7.TabIndex = 18;
+            this.PasswordField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.PasswordField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PasswordField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordField.ForeColor = System.Drawing.Color.Black;
+            this.PasswordField.Location = new System.Drawing.Point(122, 77);
+            this.PasswordField.Name = "PasswordField";
+            this.PasswordField.Size = new System.Drawing.Size(154, 21);
+            this.PasswordField.TabIndex = 18;
+            this.PasswordField.UseSystemPasswordChar = true;
             // 
             // label9
             // 
@@ -249,31 +251,32 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Old password";
             // 
-            // textBox8
+            // OldPasswordField
             // 
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ForeColor = System.Drawing.Color.Black;
-            this.textBox8.Location = new System.Drawing.Point(122, 38);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(163, 21);
-            this.textBox8.TabIndex = 15;
-            this.textBox8.UseSystemPasswordChar = true;
+            this.OldPasswordField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.OldPasswordField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OldPasswordField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OldPasswordField.ForeColor = System.Drawing.Color.Black;
+            this.OldPasswordField.Location = new System.Drawing.Point(122, 38);
+            this.OldPasswordField.Name = "OldPasswordField";
+            this.OldPasswordField.Size = new System.Drawing.Size(154, 21);
+            this.OldPasswordField.TabIndex = 15;
+            this.OldPasswordField.UseSystemPasswordChar = true;
             // 
-            // button2
+            // ChangePasswordBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(107, 171);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5);
-            this.button2.Size = new System.Drawing.Size(178, 34);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "CHANGE PASSWORD";
-            this.button2.UseVisualStyleBackColor = false;
+            this.ChangePasswordBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
+            this.ChangePasswordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangePasswordBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangePasswordBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.ChangePasswordBtn.Location = new System.Drawing.Point(107, 171);
+            this.ChangePasswordBtn.Name = "ChangePasswordBtn";
+            this.ChangePasswordBtn.Padding = new System.Windows.Forms.Padding(5);
+            this.ChangePasswordBtn.Size = new System.Drawing.Size(178, 34);
+            this.ChangePasswordBtn.TabIndex = 16;
+            this.ChangePasswordBtn.Text = "CHANGE PASSWORD";
+            this.ChangePasswordBtn.UseVisualStyleBackColor = false;
+            this.ChangePasswordBtn.Click += new System.EventHandler(this.ChangePasswordBtn_Click);
             // 
             // LogoutBtn
             // 
@@ -316,22 +319,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox FullNameField;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox UserNameField;
+        private System.Windows.Forms.Button ChangeBasicBtn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox EmailField;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox PhoneNumbField;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox ConfirmPasswordField;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox PasswordField;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox OldPasswordField;
+        private System.Windows.Forms.Button ChangePasswordBtn;
         private System.Windows.Forms.Button LogoutBtn;
     }
 }

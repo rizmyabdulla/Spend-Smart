@@ -97,7 +97,7 @@ namespace Spend_Smart
                 try
                 {
                     connection.Open();
-                    string query = "SELECT id, fullName, email, password FROM users WHERE username = @username";
+                    string query = "SELECT id, fullName, email, password, phoneNumber FROM users WHERE username = @username";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@username", UsernameField.Text);
@@ -112,14 +112,15 @@ namespace Spend_Smart
                                 if (storedHashedPassword == enteredHashedPassword)
                                 {
                                     int userId = Convert.ToInt32(reader["id"]);
+                                    int phoneNumber = Convert.ToInt32(reader["phoneNumber"]);
                                     string fullName = reader["fullName"].ToString();
                                     string email = reader["email"].ToString();
 
-                                    // Save session data to user settings
                                     Properties.Settings.Default.UserId = userId;
                                     Properties.Settings.Default.Username = UsernameField.Text;
                                     Properties.Settings.Default.FullName = fullName;
                                     Properties.Settings.Default.Email = email;
+                                    Properties.Settings.Default.PhoneNumber = phoneNumber;
                                     Properties.Settings.Default.Save();
 
                                     return true;

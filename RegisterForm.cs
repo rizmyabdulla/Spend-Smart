@@ -68,7 +68,7 @@ namespace Spend_Smart
         {
             if (ValidateRegister())
             {
-                if (DBConnection())
+                if (IsUsernameOrEmailExists())
                 {
                     InsertRegisterData();
                 }
@@ -146,7 +146,7 @@ namespace Spend_Smart
             }
         }
 
-        bool DBConnection()
+        bool IsUsernameOrEmailExists()
         {
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
