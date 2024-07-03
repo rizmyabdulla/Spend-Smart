@@ -9,10 +9,14 @@ namespace Spend_Smart
 {
     public partial class ProfileForm : Form
     {
+
+        readonly private MainForm _mainForm;
         readonly string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
-        public ProfileForm()
+        public ProfileForm(MainForm mainForm)
         {
             InitializeComponent();
+
+            _mainForm = mainForm;
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
@@ -26,8 +30,10 @@ namespace Spend_Smart
             Properties.Settings.Default.Save();
 
 
+            _mainForm.Hide();
+
             FirstForm firstForm = new FirstForm();
-            ActiveForm.Close();
+            firstForm.FormClosed += (s, args) => _mainForm.Close();
             firstForm.Show();
         }
 

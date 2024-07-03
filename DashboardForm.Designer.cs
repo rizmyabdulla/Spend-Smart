@@ -46,6 +46,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.label5 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -64,7 +65,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.status = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -80,6 +82,7 @@
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel17.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -95,6 +98,7 @@
             // 
             this.panel5.AutoScroll = true;
             this.panel5.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.panel15);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.panel4);
@@ -134,7 +138,7 @@
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(333, 14);
+            this.panel6.Location = new System.Drawing.Point(333, 61);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(264, 195);
             this.panel6.TabIndex = 5;
@@ -282,6 +286,14 @@
             this.panel4.Size = new System.Drawing.Size(289, 292);
             this.panel4.TabIndex = 3;
             // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartesianChart1.Location = new System.Drawing.Point(3, 34);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(273, 255);
+            this.cartesianChart1.TabIndex = 4;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -302,7 +314,7 @@
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Controls.Add(this.panel17);
             this.panel11.Controls.Add(this.label6);
-            this.panel11.Location = new System.Drawing.Point(333, 227);
+            this.panel11.Location = new System.Drawing.Point(333, 274);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(264, 352);
             this.panel11.TabIndex = 4;
@@ -472,13 +484,25 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Saving Goals";
             // 
-            // cartesianChart1
+            // panel1
             // 
-            this.cartesianChart1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cartesianChart1.Location = new System.Drawing.Point(3, 34);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(273, 255);
-            this.cartesianChart1.TabIndex = 4;
+            this.panel1.BackColor = System.Drawing.Color.LightGreen;
+            this.panel1.Controls.Add(this.status);
+            this.panel1.Location = new System.Drawing.Point(333, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(264, 42);
+            this.panel1.TabIndex = 9;
+            // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.status.Location = new System.Drawing.Point(90, 13);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(82, 16);
+            this.status.TabIndex = 0;
+            this.status.Text = "Status: Flex";
             // 
             // DashboardForm
             // 
@@ -517,6 +541,8 @@
             this.panel12.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -560,5 +586,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label status;
     }
 }

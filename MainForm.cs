@@ -94,7 +94,7 @@ namespace Spend_Smart
 
         private void ProfileBtn_Click(object sender, EventArgs e)
         {
-            SidebarNavigator(new ProfileForm(), ProfileBtn);
+            SidebarNavigator(new ProfileForm(this), ProfileBtn);
         }
 
         private void AddExpense_Click(object sender, EventArgs e)

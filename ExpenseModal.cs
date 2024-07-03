@@ -1,11 +1,15 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Spend_Smart
 {
     public partial class ExpenseModal : Form
     {
+        readonly string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
+
         private readonly Dictionary<int, List<string>> categories = new Dictionary<int, List<string>>()
         {
             { 0, new List<string> { "Housing", "Utilities", "Food", "Transportation", "Healthcare" } },
@@ -22,7 +26,7 @@ namespace Spend_Smart
 
         private void AddExpense_Click(object sender, EventArgs e)
         {
-            this.Close();
+            InsertExpense();
         }
 
         private void MainCat_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,6 +44,33 @@ namespace Spend_Smart
                 foreach (var item in categories[selectedIndex])
                 {
                     SubCat.Items.Add(item);
+                }
+            }
+        }
+        private void InsertExpense()
+        {
+            using (MySqlConnection connection = new MySqlConnection(conString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "INSERT INTO expenses (UserId, Category, SubCategory, Amount, IsRecurring) VALUES (@UserId, @Category, @SubCategory, @Amount, @IsRecurring)";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
+                        cmd.Parameters.AddWithValue("@Category", MainCat.Text);
+                        cmd.Parameters.AddWithValue("@SubCategory", SubCat.Text);
+                        cmd.Parameters.AddWithValue("@Amount", Amount.Text);
+                        cmd.Parameters.AddWithValue("@IsRecurring", Recuring.Checked?1:0);
+
+                        cmd.ExecuteNonQuery();
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
         }
