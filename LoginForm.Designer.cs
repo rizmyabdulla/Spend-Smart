@@ -37,7 +37,7 @@ namespace Spend_Smart
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PasswordField = new System.Windows.Forms.TextBox();
-            this.RegisterBtn = new System.Windows.Forms.LinkLabel();
+            this.RegisterLink = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panel1.SuspendLayout();
@@ -87,7 +87,7 @@ namespace Spend_Smart
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.PasswordField);
-            this.panel1.Controls.Add(this.RegisterBtn);
+            this.panel1.Controls.Add(this.RegisterLink);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.UsernameField);
             this.panel1.Controls.Add(this.LoginBtn);
@@ -138,18 +138,18 @@ namespace Spend_Smart
             this.PasswordField.TabIndex = 10;
             this.PasswordField.UseSystemPasswordChar = true;
             // 
-            // RegisterBtn
+            // RegisterLink
             // 
-            this.RegisterBtn.AutoSize = true;
-            this.RegisterBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegisterBtn.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.RegisterBtn.Location = new System.Drawing.Point(214, 241);
-            this.RegisterBtn.Name = "RegisterBtn";
-            this.RegisterBtn.Size = new System.Drawing.Size(55, 14);
-            this.RegisterBtn.TabIndex = 9;
-            this.RegisterBtn.TabStop = true;
-            this.RegisterBtn.Text = "Click Here";
-            this.RegisterBtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RegisterBtn_LinkClicked);
+            this.RegisterLink.AutoSize = true;
+            this.RegisterLink.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
+            this.RegisterLink.Location = new System.Drawing.Point(214, 241);
+            this.RegisterLink.Name = "RegisterLink";
+            this.RegisterLink.Size = new System.Drawing.Size(55, 14);
+            this.RegisterLink.TabIndex = 9;
+            this.RegisterLink.TabStop = true;
+            this.RegisterLink.Text = "Click Here";
+            this.RegisterLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RegisterLink_Click);
             // 
             // label3
             // 
@@ -193,7 +193,7 @@ namespace Spend_Smart
         private System.Windows.Forms.TextBox UsernameField;
         private System.Windows.Forms.Button LoginBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel RegisterBtn;
+        private System.Windows.Forms.LinkLabel RegisterLink;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PasswordField;
         private System.Windows.Forms.Label label5;

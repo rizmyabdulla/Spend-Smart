@@ -145,12 +145,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BudgetModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BudgetModal.Designer.cs">
+      <DependentUpon>BudgetModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="BudgetsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BudgetsForm.Designer.cs">
       <DependentUpon>BudgetsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +232,9 @@
     <Compile Include="ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BudgetModal.resx">
+      <DependentUpon>BudgetModal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BudgetsForm.resx">
       <DependentUpon>BudgetsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +273,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SavingModal.resx">
       <DependentUpon>SavingModal.cs</DependentUpon>

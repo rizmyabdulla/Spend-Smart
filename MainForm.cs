@@ -99,6 +99,7 @@ namespace Spend_Smart
 
         private void AddExpense_Click(object sender, EventArgs e)
         {
+            ExpenseModal.isAdd = true;
             Form fm = new ExpenseModal();
             fm.ShowDialog();
         }

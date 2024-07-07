@@ -9,6 +9,8 @@ namespace Spend_Smart
 {
     public partial class LoginForm : Form
     {
+
+        string conString = Properties.Resources.ConnectionString;
         public LoginForm()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace Spend_Smart
         {
             if (ValidateLogin())
             {
-                if (DBConnection())
+                if (Login())
                 {
                     MainForm fm = new MainForm();
                     fm.Show();
@@ -45,7 +47,7 @@ namespace Spend_Smart
             }
         }
 
-        private void RegisterBtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void RegisterLink_Click(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RegisterForm fm = new RegisterForm();
             fm.Show();
@@ -89,9 +91,8 @@ namespace Spend_Smart
             control.Location = new Point(newX, newY);
         }
 
-        bool DBConnection()
+        bool Login()
         {
-            string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
                 try

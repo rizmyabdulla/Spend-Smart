@@ -41,11 +41,11 @@ namespace Spend_Smart
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.UserNameField = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.LoginLink = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.FullNameField = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.RegisterBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,11 +66,11 @@ namespace Spend_Smart
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.UserNameField);
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.LoginLink);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.FullNameField);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.RegisterBtn);
             this.panel1.Location = new System.Drawing.Point(172, 97);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(492, 321);
@@ -193,19 +193,19 @@ namespace Spend_Smart
             this.UserNameField.Size = new System.Drawing.Size(178, 21);
             this.UserNameField.TabIndex = 10;
             // 
-            // linkLabel1
+            // LoginLink
             // 
-            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.linkLabel1.Location = new System.Drawing.Point(291, 286);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(55, 14);
-            this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Click Here";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Login_Clicked);
+            this.LoginLink.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.LoginLink.AutoSize = true;
+            this.LoginLink.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
+            this.LoginLink.Location = new System.Drawing.Point(291, 286);
+            this.LoginLink.Name = "LoginLink";
+            this.LoginLink.Size = new System.Drawing.Size(55, 14);
+            this.LoginLink.TabIndex = 9;
+            this.LoginLink.TabStop = true;
+            this.LoginLink.Text = "Click Here";
+            this.LoginLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LoginLink_Click);
             // 
             // label2
             // 
@@ -240,21 +240,21 @@ namespace Spend_Smart
             this.FullNameField.Size = new System.Drawing.Size(178, 21);
             this.FullNameField.TabIndex = 3;
             // 
-            // button1
+            // RegisterBtn
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(161, 236);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5);
-            this.button1.Size = new System.Drawing.Size(178, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "REGISTER";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Registerbtn_Click);
+            this.RegisterBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
+            this.RegisterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegisterBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.RegisterBtn.Location = new System.Drawing.Point(161, 236);
+            this.RegisterBtn.Name = "RegisterBtn";
+            this.RegisterBtn.Padding = new System.Windows.Forms.Padding(5);
+            this.RegisterBtn.Size = new System.Drawing.Size(178, 35);
+            this.RegisterBtn.TabIndex = 5;
+            this.RegisterBtn.Text = "REGISTER";
+            this.RegisterBtn.UseVisualStyleBackColor = false;
+            this.RegisterBtn.Click += new System.EventHandler(this.Registerbtn_Click);
             // 
             // label1
             // 
@@ -290,11 +290,11 @@ namespace Spend_Smart
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox UserNameField;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel LoginLink;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox FullNameField;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox EmailField;

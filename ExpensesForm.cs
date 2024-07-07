@@ -42,17 +42,17 @@ namespace Spend_Smart
                 var amounts = categorySums.Select(c => (int)c.TotalAmount).ToArray();
 
                 // Update the chart
-                cartesianChart1.Series = new ObservableCollection<ISeries>
+                ExpensesChart.Series = new ObservableCollection<ISeries>
                 {
                     new ColumnSeries<int> { Values = new ObservableCollection<int>(amounts), Fill = new SolidColorPaint(new SKColor(134, 146, 255)) }
                 };
 
-                cartesianChart1.XAxes = new List<Axis>
+                ExpensesChart.XAxes = new List<Axis>
                 {
                     new Axis { Labels = categories, IsVisible = true }
                 };
 
-                cartesianChart1.YAxes = new List<Axis> { new Axis { Labeler = Labelers.Currency } };
+                ExpensesChart.YAxes = new List<Axis> { new Axis { Labeler = Labelers.Currency } };
             }
         }
 
@@ -101,7 +101,6 @@ namespace Spend_Smart
                     FlowDirection = FlowDirection.LeftToRight
                 };
 
-                // Add Edit link label
                 LinkLabel editLink = new LinkLabel()
                 {
                     Text = "EDIT",
@@ -114,7 +113,7 @@ namespace Spend_Smart
                 editLink.Click += EditLink_Click;
                 actionPanel.Controls.Add(editLink);
 
-                // Add Delete link label
+
                 LinkLabel deleteLink = new LinkLabel()
                 {
                     Text = "DELETE",
@@ -134,20 +133,63 @@ namespace Spend_Smart
 
         private void EditLink_Click(object sender, EventArgs e)
         {
-            LinkLabel link = sender as LinkLabel;
-            if (link != null)
+            if (sender is LinkLabel link)
             {
                 int expenseId = (int)link.Tag;
+                ExpenseModal.isAdd = false;
+                ExpenseModal.expenseID = expenseId;
+
+                Form fm = new ExpenseModal();
+                fm.ShowDialog();
+
+                RefreshExpenses();
             }
         }
 
         private void DeleteLink_Click(object sender, EventArgs e)
         {
-            LinkLabel link = sender as LinkLabel;
-            if (link != null)
+            if (sender is LinkLabel link)
             {
                 int expenseId = (int)link.Tag;
+
+                if (MessageBox.Show("Do you really want to delete this expense?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    DeleteExpense(expenseId);
+
+                    RefreshExpenses();
+                }
             }
+        }
+
+        private void DeleteExpense(int expenseId)
+        {
+            string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
+            using (MySqlConnection connection = new MySqlConnection(conString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "DELETE FROM Expenses WHERE ExpenseId = @ExpenseId AND UserId = @UserId";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@ExpenseId", expenseId);
+                        cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+        }
+
+        public void RefreshExpenses()
+        {
+            DataTable expensesTable = GetExpenses();
+            PopulateExpenseTable(expensesTable);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Spend_Smart
             CenterControl(panel1, horizontal: true, vertical: true);
         }
 
-        private void Login_Clicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LoginLink_Click(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginForm fm2 = new LoginForm();
             fm2.Show();
