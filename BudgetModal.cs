@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,9 +18,6 @@ namespace Spend_Smart
         public static bool isAdd;
         public static int budgetID;
         readonly string conString = Properties.Resources.ConnectionString;
-
-        List<string> Expenses = new List<string>();
-
 
         public BudgetModal()
         {
@@ -42,11 +40,14 @@ namespace Spend_Smart
 
         private void LoadExpensesList()
         {
-            List<string> expensesList = GetExpensesList();
-
-            foreach (string expense in expensesList)
+            try
             {
-                ExpenseChooser.Items.Add(expense);
+                List<string> expensesList = GetExpensesList();
+                ExpenseChooser.Items.AddRange(expensesList.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
@@ -56,42 +57,36 @@ namespace Spend_Smart
 
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
-                try
+                connection.Open();
+                string query = "SELECT DISTINCT Name FROM Expenses WHERE UserId = @UserId";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    connection.Open();
-
-                    string query = "SELECT DISTINCT Name FROM Expenses WHERE UserId = @UserId";
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
-
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                expensesList.Add(reader.GetString("Name"));
-                            }
+                            expensesList.Add(reader.GetString("Name"));
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
             }
-
             return expensesList;
         }
 
         private void AddBudget_Click(object sender, EventArgs e)
         {
-            if (isAdd)
+            if (ValidateFields())
             {
-                InsertBudget();
-            }
-            else
-            {
-                UpdateBudgets();
+                if (isAdd)
+                {
+                    InsertBudget();
+                }
+                else
+                {
+                    UpdateBudgets();
+                }
             }
         }
 
@@ -199,6 +194,24 @@ namespace Spend_Smart
                     MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
+        }
+
+        private bool ValidateFields()
+        {
+            if (string.IsNullOrWhiteSpace(ExpenseChooser.Text) ||
+                string.IsNullOrWhiteSpace(Amount.Text) ||
+                string.IsNullOrWhiteSpace(DueDate.Text))
+            {
+                MessageBox.Show("Please fill in every field!");
+                return false;
+            }
+
+            if (Convert.ToInt32(Amount.Text) <= 0)
+            {
+                MessageBox.Show("Amount must be Greater than 1");
+                return false;
+            }
+            return true;
         }
 
         private void CenterControl(Control control, bool horizontal, bool vertical)

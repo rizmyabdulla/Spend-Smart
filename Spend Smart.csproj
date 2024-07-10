@@ -157,7 +157,6 @@
     <Compile Include="BudgetsForm.Designer.cs">
       <DependentUpon>BudgetsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils.cs" />
     <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,11 +187,11 @@
     <Compile Include="IncomeForm.Designer.cs">
       <DependentUpon>IncomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Incomemodal.cs">
+    <Compile Include="IncomeModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Incomemodal.Designer.cs">
-      <DependentUpon>Incomemodal.cs</DependentUpon>
+    <Compile Include="IncomeModal.Designer.cs">
+      <DependentUpon>IncomeModal.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -214,11 +213,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SavingModal.cs">
+    <Compile Include="SavingsModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SavingModal.Designer.cs">
-      <DependentUpon>SavingModal.cs</DependentUpon>
+    <Compile Include="SavingsModal.Designer.cs">
+      <DependentUpon>SavingsModal.cs</DependentUpon>
     </Compile>
     <Compile Include="SavingsForm.cs">
       <SubType>Form</SubType>
@@ -253,8 +252,8 @@
     <EmbeddedResource Include="IncomeForm.resx">
       <DependentUpon>IncomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Incomemodal.resx">
-      <DependentUpon>Incomemodal.cs</DependentUpon>
+    <EmbeddedResource Include="IncomeModal.resx">
+      <DependentUpon>IncomeModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -275,8 +274,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SavingModal.resx">
-      <DependentUpon>SavingModal.cs</DependentUpon>
+    <EmbeddedResource Include="SavingsModal.resx">
+      <DependentUpon>SavingsModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SavingsForm.resx">
       <DependentUpon>SavingsForm.cs</DependentUpon>

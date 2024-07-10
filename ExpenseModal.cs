@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Spend_Smart
@@ -43,34 +44,34 @@ namespace Spend_Smart
 
         private void AddExpense_Click(object sender, EventArgs e)
         {
-            if (isAdd)
+            if (ValidateFields())
             {
-                InsertExpense();
-            }
-            else
-            {
-                UpdateExpense();
+
+                if (isAdd)
+                {
+                    InsertExpense();
+                }
+                else
+                {
+                    UpdateExpense();
+                }
             }
         }
 
         private void MainCat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateSubCategories(MainCat.SelectedIndex);
-        }
-
-        private void UpdateSubCategories(int selectedIndex)
-        {
             SubCat.Items.Clear();
             SubCat.Text = string.Empty;
 
-            if (categories.ContainsKey(selectedIndex))
+            if (categories.ContainsKey(MainCat.SelectedIndex))
             {
-                foreach (var item in categories[selectedIndex])
+                foreach (var item in categories[MainCat.SelectedIndex])
                 {
                     SubCat.Items.Add(item);
                 }
             }
         }
+
 
         private void InsertExpense()
         {
@@ -163,6 +164,30 @@ namespace Spend_Smart
                     MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
+        }
+
+        private bool ValidateFields()
+        {
+            if (string.IsNullOrWhiteSpace(MainCat.Text) ||
+                string.IsNullOrWhiteSpace(SubCat.Text) ||
+                string.IsNullOrWhiteSpace(NameBox.Text) ||
+                string.IsNullOrWhiteSpace(Amount.Text))
+            {
+                MessageBox.Show("Please fill in every field!");
+                return false;
+            }
+
+            if (!Regex.IsMatch(NameBox.Text, @"^[a-zA-Z\s]+$"))
+            {
+                MessageBox.Show("Expense Name must contain only alphabets and spaces!");
+                return false;
+            }
+            if(Convert.ToInt32(Amount.Text) <= 0)
+            {
+                MessageBox.Show("Amount must be Greater than 1");
+                return false;
+            }
+            return true;
         }
 
         private void CenterControl(Control control, bool horizontal, bool vertical)

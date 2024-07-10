@@ -13,17 +13,13 @@ namespace Spend_Smart
 {
     public partial class BudgetsForm : Form
     {
-        string conString = Properties.Resources.ConnectionString;
+        readonly string conString = Properties.Resources.ConnectionString;
 
         public BudgetsForm()
         {
             InitializeComponent();
-
-            BudgetsCount.Text = GetTotalBudgetCount().ToString();
-            SumOfBudgets.Text = "$" + Math.Round(GetTotalBudgetAmount()).ToString();
-            DataTable budgetsTable = GetBudgets();
-
-            PopulateBudgetTable(budgetsTable);
+            
+            RefreshBudgets();
 
         }
 
@@ -121,7 +117,7 @@ namespace Spend_Smart
                 Form fm = new BudgetModal();
                 fm.ShowDialog();
 
-                RefreshExpenses();
+                RefreshBudgets();
 
             }
         }
@@ -135,7 +131,7 @@ namespace Spend_Smart
                 if (MessageBox.Show("Do you really want to delete this budget?", "Confirm Budget delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     DeleteBudget(budgetId);
-                    RefreshExpenses();
+                    RefreshBudgets();
                 }
             }
         }
@@ -221,8 +217,11 @@ namespace Spend_Smart
         }
 
 
-        public void RefreshExpenses()
+        public void RefreshBudgets()
         {
+            BudgetsCount.Text = GetTotalBudgetCount().ToString();
+            SumOfBudgets.Text = "$" + Math.Round(GetTotalBudgetAmount()).ToString();
+
             DataTable budgetsTable = GetBudgets();
             PopulateBudgetTable(budgetsTable);
         }

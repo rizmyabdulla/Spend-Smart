@@ -30,6 +30,8 @@
         {
             this.ModalTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Recuring = new System.Windows.Forms.CheckBox();
             this.Amount = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,8 +40,6 @@
             this.AddExpense = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.MainCat = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NameBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 313);
             this.panel1.TabIndex = 1;
+            // 
+            // NameBox
+            // 
+            this.NameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.NameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NameBox.Location = new System.Drawing.Point(71, 30);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(177, 22);
+            this.NameBox.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(142, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Name";
             // 
             // Recuring
             // 
@@ -112,11 +131,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(138, 173);
+            this.label4.Location = new System.Drawing.Point(128, 171);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 16);
+            this.label4.Size = new System.Drawing.Size(67, 16);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Amount";
+            this.label4.Text = "Amount($)";
             // 
             // label5
             // 
@@ -180,25 +199,6 @@
             this.MainCat.Size = new System.Drawing.Size(175, 23);
             this.MainCat.TabIndex = 0;
             this.MainCat.SelectedIndexChanged += new System.EventHandler(this.MainCat_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(142, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Name";
-            // 
-            // NameBox
-            // 
-            this.NameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.NameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NameBox.Location = new System.Drawing.Point(71, 30);
-            this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(177, 22);
-            this.NameBox.TabIndex = 17;
             // 
             // ExpenseModal
             // 

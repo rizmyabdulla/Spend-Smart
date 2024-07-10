@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,51 +9,51 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Spend_Smart
 {
-    public partial class IncomeModal : Form
+    public partial class SavingsModal : Form
     {
 
         public static bool isAdd;
-        public static int incomeID;
+        public static int savingID;
         readonly string conString = Properties.Resources.ConnectionString;
-        public IncomeModal()
+
+        public SavingsModal()
         {
             InitializeComponent();
-
             if (isAdd)
             {
-                ModalTitle.Text = "ADD INCOME";
-                AddIncome.Text = "ADD INCOME";
+                ModalTitle.Text = "ADD SAVING";
+                AddSaving.Text = "ADD SAVING";
             }
             else
             {
-                ModalTitle.Text = "UPDATE INCOME";
-                AddIncome.Text = "UPDATE INCOME";
-                GetIncome();
+                ModalTitle.Text = "UPDATE SAVING";
+                AddSaving.Text = "UPDATE SAVING";
+                GetSaving();
             }
 
             CenterControl(ModalTitle, horizontal: true, vertical: false);
         }
 
-        private void AddIncome_Click(object sender, EventArgs e)
+        private void AddSaving_Click(object sender, EventArgs e)
         {
+
             if (ValidateFields())
             {
                 if (isAdd)
                 {
-                    InsertIncome();
+                    InsertSaving();
                 }
                 else
                 {
-                    UpdateIncome();
+                    UpdateSaving();
                 }
             }
         }
 
-        private void InsertIncome()
+        private void InsertSaving()
         {
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
@@ -60,13 +61,14 @@ namespace Spend_Smart
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO Income (UserId, Source, Amount, IsRecurring) VALUES (@UserId, @Source, @Amount, @IsRecurring)";
+                    string query = "INSERT INTO Savings (UserId, Goal, AmountSaved, TargetAmount, Status) VALUES (@UserId, @Goal, @AmountSaved, @TargetAmount, @Status)";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
-                        cmd.Parameters.AddWithValue("@Source", IncomeSource.Text);
-                        cmd.Parameters.AddWithValue("@Amount", Convert.ToInt32(Amount.Text));
-                        cmd.Parameters.AddWithValue("@IsRecurring", Recurring.Checked ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@Goal", SavingName.Text);
+                        cmd.Parameters.AddWithValue("@AmountSaved", Convert.ToInt32(AmountSaved.Text));
+                        cmd.Parameters.AddWithValue("@TargetAmount", Convert.ToInt32(Amount.Text));
+                        cmd.Parameters.AddWithValue("@Status", Convert.ToInt32(AmountSaved.Text) >= Convert.ToInt32(Amount.Text)?1:0);
 
                         cmd.ExecuteNonQuery();
                         this.Close();
@@ -79,7 +81,7 @@ namespace Spend_Smart
             }
         }
 
-        private void UpdateIncome()
+        private void UpdateSaving()
         {
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
@@ -87,14 +89,15 @@ namespace Spend_Smart
                 {
                     connection.Open();
 
-                    string query = "UPDATE Income SET Source = @Source, Amount = @Amount, IsRecurring = @IsRecurring WHERE IncomeId = @IncomeId AND UserId = @UserId";
+                    string query = "UPDATE Savings SET Goal = @Goal, AmountSaved = @AmountSaved, TargetAmount = @TargetAmount, Status = @Status WHERE SavingId = @SavingId AND UserId = @UserId";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@IncomeId", incomeID);
+                        cmd.Parameters.AddWithValue("@SavingId", savingID);
                         cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
-                        cmd.Parameters.AddWithValue("@Source", IncomeSource.Text);
-                        cmd.Parameters.AddWithValue("@Amount", Convert.ToInt32(Amount.Text));
-                        cmd.Parameters.AddWithValue("@IsRecurring", Recurring.Checked ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@Goal", SavingName.Text);
+                        cmd.Parameters.AddWithValue("@AmountSaved", Convert.ToInt32(AmountSaved.Text));
+                        cmd.Parameters.AddWithValue("@TargetAmount", Convert.ToInt32(Amount.Text));
+                        cmd.Parameters.AddWithValue("@Status", Convert.ToInt32(AmountSaved.Text) >= Convert.ToInt32(Amount.Text) ? 1 : 0);
 
                         cmd.ExecuteNonQuery();
                         this.Close();
@@ -107,7 +110,7 @@ namespace Spend_Smart
             }
         }
 
-        private void GetIncome()
+        private void GetSaving()
         {
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
@@ -115,19 +118,19 @@ namespace Spend_Smart
                 {
                     connection.Open();
 
-                    string query = "SELECT Source, Amount, IsRecurring FROM Income WHERE IncomeId = @IncomeId AND UserId = @UserId";
+                    string query = "SELECT Goal, AmountSaved, TargetAmount, Status FROM Savings WHERE SavingId = @SavingId AND UserId = @UserId";
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@IncomeId", incomeID);
+                        cmd.Parameters.AddWithValue("@SavingId", savingID);
                         cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                IncomeSource.Text = reader["Source"].ToString();
-                                Amount.Text = reader["Amount"].ToString();
-                                Recurring.Checked = Convert.ToInt32(reader["IsRecurring"]) == 1;
+                                SavingName.Text = reader["Goal"].ToString();
+                                Amount.Text = reader["TargetAmount"].ToString();
+                                AmountSaved.Text = reader["AmountSaved"].ToString();
                             }
                         }
                     }
@@ -141,16 +144,23 @@ namespace Spend_Smart
 
         private bool ValidateFields()
         {
-            if (string.IsNullOrWhiteSpace(IncomeSource.Text) ||
-                string.IsNullOrWhiteSpace(Amount.Text))
+            if (string.IsNullOrWhiteSpace(SavingName.Text) ||
+                string.IsNullOrWhiteSpace(Amount.Text) ||
+                string.IsNullOrWhiteSpace(AmountSaved.Text))
             {
                 MessageBox.Show("Please fill in every field!");
                 return false;
             }
 
-            if (!Regex.IsMatch(IncomeSource.Text, @"^[a-zA-Z\s]+$"))
+            if (!Regex.IsMatch(SavingName.Text, @"^[a-zA-Z\s]+$"))
             {
-                MessageBox.Show("Source Name must contain only alphabets and spaces!");
+                MessageBox.Show("Saving Name must contain only alphabets and spaces!");
+                return false;
+            }
+
+            if (Convert.ToInt32(Amount.Text) <= 0 || Convert.ToInt32(AmountSaved.Text) <= 0)
+            {
+                MessageBox.Show("Amount must be Greater than 1");
                 return false;
             }
             return true;

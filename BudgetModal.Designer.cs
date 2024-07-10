@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DueDate = new System.Windows.Forms.DateTimePicker();
             this.Recurring = new System.Windows.Forms.CheckBox();
             this.Amount = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -36,8 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ExpenseChooser = new System.Windows.Forms.ComboBox();
             this.ModalTitle = new System.Windows.Forms.Label();
-            this.DueDate = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +57,23 @@
             this.panel1.Size = new System.Drawing.Size(320, 313);
             this.panel1.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(138, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Due Date";
+            // 
+            // DueDate
+            // 
+            this.DueDate.Location = new System.Drawing.Point(71, 102);
+            this.DueDate.Name = "DueDate";
+            this.DueDate.Size = new System.Drawing.Size(178, 20);
+            this.DueDate.TabIndex = 16;
+            // 
             // Recurring
             // 
             this.Recurring.AutoSize = true;
@@ -64,9 +81,9 @@
             this.Recurring.Location = new System.Drawing.Point(82, 198);
             this.Recurring.Name = "Recurring";
             this.Recurring.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Recurring.Size = new System.Drawing.Size(160, 20);
+            this.Recurring.Size = new System.Drawing.Size(164, 20);
             this.Recurring.TabIndex = 15;
-            this.Recurring.Text = "?Recuring Every month";
+            this.Recurring.Text = "?Recurring Every month";
             this.Recurring.UseVisualStyleBackColor = true;
             // 
             // Amount
@@ -135,12 +152,6 @@
             this.ExpenseChooser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.ExpenseChooser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExpenseChooser.FormattingEnabled = true;
-            this.ExpenseChooser.Items.AddRange(new object[] {
-            "Essentials",
-            "Non-Essentials",
-            "Savings and Investments",
-            "Debt Payments",
-            "Miscellaneous"});
             this.ExpenseChooser.Location = new System.Drawing.Point(73, 43);
             this.ExpenseChooser.Name = "ExpenseChooser";
             this.ExpenseChooser.Size = new System.Drawing.Size(175, 23);
@@ -156,23 +167,6 @@
             this.ModalTitle.TabIndex = 2;
             this.ModalTitle.Text = "ADD BUDGET";
             // 
-            // DueDate
-            // 
-            this.DueDate.Location = new System.Drawing.Point(71, 102);
-            this.DueDate.Name = "DueDate";
-            this.DueDate.Size = new System.Drawing.Size(178, 20);
-            this.DueDate.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(138, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 16);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Due Date";
-            // 
             // BudgetModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +179,7 @@
             this.MinimizeBox = false;
             this.Name = "BudgetModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "BudgetModal";
+            this.Text = "Budget Modal";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).EndInit();

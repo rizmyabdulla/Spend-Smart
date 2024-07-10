@@ -15,52 +15,18 @@ namespace Spend_Smart
 {
     public partial class ExpensesForm : Form
     {
+        readonly string conString = Properties.Resources.ConnectionString;
         public ExpensesForm()
         {
             InitializeComponent();
 
-            // Retrieve expenses data
-            DataTable expensesTable = GetExpenses();
-
-            // Bind data to TableLayoutPanel
-            PopulateExpenseTable(expensesTable);
-
-            // Update the chart only if there are at least 4 rows of data
-            if (expensesTable.Rows.Count >= 4)
-            {
-                // Group expenses by category and sum the amounts
-                var categorySums = expensesTable.AsEnumerable()
-                    .GroupBy(row => row.Field<string>("Category"))
-                    .Select(g => new
-                    {
-                        Category = g.Key,
-                        TotalAmount = g.Sum(row => row.Field<decimal>("Amount"))
-                    }).ToList();
-
-                // Prepare data for the chart
-                var categories = categorySums.Select(c => c.Category).ToArray();
-                var amounts = categorySums.Select(c => (int)c.TotalAmount).ToArray();
-
-                // Update the chart
-                ExpensesChart.Series = new ObservableCollection<ISeries>
-                {
-                    new ColumnSeries<int> { Values = new ObservableCollection<int>(amounts), Fill = new SolidColorPaint(new SKColor(134, 146, 255)) }
-                };
-
-                ExpensesChart.XAxes = new List<Axis>
-                {
-                    new Axis { Labels = categories, IsVisible = true }
-                };
-
-                ExpensesChart.YAxes = new List<Axis> { new Axis { Labeler = Labelers.Currency } };
-            }
+            RefreshExpenses();
         }
 
         private DataTable GetExpenses()
         {
             DataTable expensesTable = new DataTable();
 
-            string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
                 string query = "SELECT ExpenseId, Category, Amount, SubCategory, IsRecurring FROM Expenses WHERE UserId = @UserId";
@@ -126,7 +92,6 @@ namespace Spend_Smart
                 deleteLink.Click += DeleteLink_Click;
                 actionPanel.Controls.Add(deleteLink);
 
-                // Add the action panel to the table
                 ExpenseTable.Controls.Add(actionPanel, 4, i + 1);
             }
         }
@@ -163,7 +128,6 @@ namespace Spend_Smart
 
         private void DeleteExpense(int expenseId)
         {
-            string conString = "server=localhost;uid=root;pwd=;database=spend_smart";
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
                 try
@@ -186,10 +150,42 @@ namespace Spend_Smart
             }
         }
 
+        private void LoadExpenseChart(DataTable expensesTable)
+        {
+            if (expensesTable.Rows.Count >= 4)
+            {
+                // Group expenses by category and sum the amounts
+                var categorySums = expensesTable.AsEnumerable()
+                    .GroupBy(row => row.Field<string>("Category"))
+                    .Select(g => new
+                    {
+                        Category = g.Key,
+                        TotalAmount = g.Sum(row => row.Field<decimal>("Amount"))
+                    }).ToList();
+
+                // Prepare data for the chart
+                var categories = categorySums.Select(c => c.Category).ToArray();
+                var amounts = categorySums.Select(c => (int)c.TotalAmount).ToArray();
+
+                ExpensesChart.Series = new ObservableCollection<ISeries>
+                {
+                    new ColumnSeries<int> { Values = new ObservableCollection<int>(amounts), Fill = new SolidColorPaint(new SKColor(134, 146, 255)) }
+                };
+
+                ExpensesChart.XAxes = new List<Axis>
+                {
+                    new Axis { Labels = categories, IsVisible = true }
+                };
+
+                ExpensesChart.YAxes = new List<Axis> { new Axis { Labeler = Labelers.Currency } };
+            }
+        }
+
         public void RefreshExpenses()
         {
             DataTable expensesTable = GetExpenses();
             PopulateExpenseTable(expensesTable);
+            LoadExpenseChart(expensesTable);
         }
     }
 }

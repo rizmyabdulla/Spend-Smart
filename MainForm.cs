@@ -106,13 +106,15 @@ namespace Spend_Smart
 
         private void AddIncome_Click(object sender, EventArgs e)
         {
-            Form fm = new Incomemodal();
+            IncomeModal.isAdd = true;
+            Form fm = new IncomeModal();
             fm.ShowDialog();
         }
 
         private void AddSaving_Click(object sender, EventArgs e)
         {
-            Form fm = new SavingModal();
+            SavingsModal.isAdd = true;
+            Form fm = new SavingsModal();
             fm.ShowDialog();
         }
     }

@@ -17,6 +17,7 @@ namespace Spend_Smart
             InitializeComponent();
 
             _mainForm = mainForm;
+            GetUserData();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
@@ -37,14 +38,6 @@ namespace Spend_Smart
             firstForm.Show();
         }
 
-        private void ChangeBasicBtn_Click(object sender, EventArgs e)
-        {
-            if (ValidateBasic() && IsUsernameOrEmailExists())
-            {
-                MessageBox.Show("Profile fields are valid!");
-            }
-        }
-
         private void ChangePasswordBtn_Click(object sender, EventArgs e)
         {
             if (ValidateChangePassword() == true)
@@ -53,128 +46,38 @@ namespace Spend_Smart
             }
         }
 
-
-        // UPDATE BASIC INFO Validations and DB
-
-        bool ValidateBasic()
-        {
-            if (string.IsNullOrWhiteSpace(FullNameField.Text) &&
-                string.IsNullOrWhiteSpace(UserNameField.Text) &&
-                string.IsNullOrWhiteSpace(EmailField.Text) &&
-                string.IsNullOrWhiteSpace(PhoneNumbField.Text))
-            {
-                MessageBox.Show("Please fill at least one field!");
-                return false;
-            }
-
-            if (!string.IsNullOrWhiteSpace(FullNameField.Text))
-            {
-                if (!Regex.IsMatch(FullNameField.Text, @"^[a-zA-Z\s]+$"))
-                {
-                    MessageBox.Show("Full Name must contain only alphabets and spaces!");
-                    return false;
-                }
-
-                if (FullNameField.TextLength < 4)
-                {
-                    MessageBox.Show("Full Name must be 4 or more characters!");
-                    return false;
-                }
-            }
-
-            if (!string.IsNullOrWhiteSpace(UserNameField.Text))
-            {
-                if (UserNameField.TextLength < 4)
-                {
-                    MessageBox.Show("Username must be 4 or more characters!");
-                    return false;
-                }
-
-                if (UserNameField.Text == Properties.Settings.Default.Username)
-                {
-                    MessageBox.Show("Please enter a new Username or leave it empty!");
-                    return false;
-                }
-            }
-
-            if (!string.IsNullOrWhiteSpace(EmailField.Text))
-            {
-                if (!IsValidEmail(EmailField.Text))
-                {
-                    MessageBox.Show("Please enter a valid email address!");
-                    return false;
-                }
-
-                if (EmailField.Text == Properties.Settings.Default.Email)
-                {
-                    MessageBox.Show("Please enter a new Email Address or leave it empty!");
-                    return false;
-                }
-            }
-
-            if (!string.IsNullOrWhiteSpace(PhoneNumbField.Text))
-            {
-                if (!Regex.IsMatch(PhoneNumbField.Text, @"^\d{10}$"))
-                {
-                    MessageBox.Show("Please enter a valid phone number!");
-                    return false;
-                }
-
-                if (int.TryParse(PhoneNumbField.Text, out int phoneNumber))
-                {
-                    if (phoneNumber == Properties.Settings.Default.PhoneNumber)
-                    {
-                        MessageBox.Show("Please enter a new phone number or leave it empty!");
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Phone number format is incorrect!");
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-
-        bool IsUsernameOrEmailExists()
+        private void GetUserData()
         {
             using (MySqlConnection connection = new MySqlConnection(conString))
             {
                 try
                 {
                     connection.Open();
-                    string checkQuery = "SELECT COUNT(*) FROM users WHERE username = @username OR email = @Email";
-                    using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, connection))
-                    {
-                        checkCmd.Parameters.AddWithValue("@username", UserNameField.Text);
-                        checkCmd.Parameters.AddWithValue("@Email", EmailField.Text);
 
-                        int userExists = Convert.ToInt32(checkCmd.ExecuteScalar());
-                        if (userExists > 0)
+                    string query = "SELECT username, fullName, email, phoneNumber FROM users WHERE id = @UserId";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@UserId", Properties.Settings.Default.UserId);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Username or Email already exists!");
-                            return true;
+                            if (reader.Read())
+                            {
+                                UserNameLabel.Text = reader["username"].ToString();
+                                FNameLabel.Text = reader["fullname"].ToString();
+                                EmailLabel.Text = reader["email"].ToString();
+                                PNumberLabel.Text = reader["phoneNumber"].ToString();
+
+                            }
                         }
                     }
-                }
-                catch (FormatException fe)
-                {
-                    MessageBox.Show("Format Error: " + fe.Message);
-                    return false;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred: " + ex.Message);
-                    return false;
                 }
             }
-            return false;
         }
-
-
 
         // CHANGE PASSWORD Validations and DB
 
@@ -220,21 +123,7 @@ namespace Spend_Smart
             }
             return true;
         }
-
-        bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
    
-
         bool IsOldPasswordMatch()
         {
             using (MySqlConnection connection = new MySqlConnection(conString))

@@ -1,6 +1,6 @@
 ﻿namespace Spend_Smart
 {
-    partial class SavingModal
+    partial class SavingsModal
     {
         /// <summary>
         /// Required designer variable.
@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.AmountSaved = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.IncomeSource = new System.Windows.Forms.TextBox();
+            this.SavingName = new System.Windows.Forms.TextBox();
             this.AddSaving = new System.Windows.Forms.Button();
             this.Amount = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ModalTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountSaved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Controls.Add(this.AmountSaved);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.IncomeSource);
+            this.panel1.Controls.Add(this.SavingName);
             this.panel1.Controls.Add(this.AddSaving);
             this.panel1.Controls.Add(this.Amount);
             this.panel1.Controls.Add(this.label4);
@@ -56,15 +56,20 @@
             this.panel1.Size = new System.Drawing.Size(320, 299);
             this.panel1.TabIndex = 5;
             // 
-            // numericUpDown1
+            // AmountSaved
             // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(73, 160);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(175, 21);
-            this.numericUpDown1.TabIndex = 13;
+            this.AmountSaved.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.AmountSaved.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AmountSaved.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AmountSaved.Location = new System.Drawing.Point(73, 160);
+            this.AmountSaved.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.AmountSaved.Name = "AmountSaved";
+            this.AmountSaved.Size = new System.Drawing.Size(175, 21);
+            this.AmountSaved.TabIndex = 13;
             // 
             // label2
             // 
@@ -76,16 +81,16 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Saved Amount So Far";
             // 
-            // IncomeSource
+            // SavingName
             // 
-            this.IncomeSource.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.IncomeSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.IncomeSource.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IncomeSource.ForeColor = System.Drawing.Color.Black;
-            this.IncomeSource.Location = new System.Drawing.Point(70, 32);
-            this.IncomeSource.Name = "IncomeSource";
-            this.IncomeSource.Size = new System.Drawing.Size(178, 21);
-            this.IncomeSource.TabIndex = 10;
+            this.SavingName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.SavingName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SavingName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SavingName.ForeColor = System.Drawing.Color.Black;
+            this.SavingName.Location = new System.Drawing.Point(70, 32);
+            this.SavingName.Name = "SavingName";
+            this.SavingName.Size = new System.Drawing.Size(178, 21);
+            this.SavingName.TabIndex = 10;
             // 
             // AddSaving
             // 
@@ -99,7 +104,7 @@
             this.AddSaving.Padding = new System.Windows.Forms.Padding(5);
             this.AddSaving.Size = new System.Drawing.Size(178, 35);
             this.AddSaving.TabIndex = 7;
-            this.AddSaving.Text = "ADD INCOME";
+            this.AddSaving.Text = "ADD SAVING";
             this.AddSaving.UseVisualStyleBackColor = false;
             this.AddSaving.Click += new System.EventHandler(this.AddSaving_Click);
             // 
@@ -109,6 +114,11 @@
             this.Amount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Amount.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Amount.Location = new System.Drawing.Point(73, 96);
+            this.Amount.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(175, 21);
             this.Amount.TabIndex = 6;
@@ -133,15 +143,15 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Saving Name";
             // 
-            // label1
+            // ModalTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(118, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ADD SAVING";
+            this.ModalTitle.AutoSize = true;
+            this.ModalTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModalTitle.Location = new System.Drawing.Point(118, 18);
+            this.ModalTitle.Name = "ModalTitle";
+            this.ModalTitle.Size = new System.Drawing.Size(108, 19);
+            this.ModalTitle.TabIndex = 4;
+            this.ModalTitle.Text = "ADD SAVING";
             // 
             // SavingModal
             // 
@@ -149,13 +159,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 369);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ModalTitle);
             this.Name = "SavingModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Saving Modal";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountSaved)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -165,13 +175,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox IncomeSource;
+        private System.Windows.Forms.TextBox SavingName;
         private System.Windows.Forms.Button AddSaving;
         private System.Windows.Forms.NumericUpDown Amount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label ModalTitle;
+        private System.Windows.Forms.NumericUpDown AmountSaved;
         private System.Windows.Forms.Label label2;
     }
 }

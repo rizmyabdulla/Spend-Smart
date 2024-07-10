@@ -28,17 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.EmailField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.PhoneNumbField = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.FullNameField = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.UserNameField = new System.Windows.Forms.TextBox();
-            this.ChangeBasicBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ConfirmPasswordField = new System.Windows.Forms.TextBox();
@@ -48,35 +42,28 @@
             this.OldPasswordField = new System.Windows.Forms.TextBox();
             this.ChangePasswordBtn = new System.Windows.Forms.Button();
             this.LogoutBtn = new System.Windows.Forms.Button();
+            this.UserNameLabel = new System.Windows.Forms.Label();
+            this.FNameLabel = new System.Windows.Forms.Label();
+            this.PNumberLabel = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Edit Your Profile";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.EmailLabel);
+            this.groupBox1.Controls.Add(this.PNumberLabel);
+            this.groupBox1.Controls.Add(this.FNameLabel);
+            this.groupBox1.Controls.Add(this.UserNameLabel);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.EmailField);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.PhoneNumbField);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.FullNameField);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.UserNameField);
-            this.groupBox1.Controls.Add(this.ChangeBasicBtn);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(19, 74);
+            this.groupBox1.Location = new System.Drawing.Point(19, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(291, 246);
+            this.groupBox1.Size = new System.Drawing.Size(291, 205);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BASIC INFO";
@@ -87,20 +74,9 @@
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 157);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 15);
+            this.label5.Size = new System.Drawing.Size(93, 15);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Email Address";
-            // 
-            // EmailField
-            // 
-            this.EmailField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.EmailField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EmailField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailField.ForeColor = System.Drawing.Color.Black;
-            this.EmailField.Location = new System.Drawing.Point(107, 156);
-            this.EmailField.Name = "EmailField";
-            this.EmailField.Size = new System.Drawing.Size(167, 21);
-            this.EmailField.TabIndex = 22;
+            this.label5.Text = "Email Address :";
             // 
             // label3
             // 
@@ -108,20 +84,9 @@
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 15);
+            this.label3.Size = new System.Drawing.Size(97, 15);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Phone Number";
-            // 
-            // PhoneNumbField
-            // 
-            this.PhoneNumbField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.PhoneNumbField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PhoneNumbField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumbField.ForeColor = System.Drawing.Color.Black;
-            this.PhoneNumbField.Location = new System.Drawing.Point(107, 116);
-            this.PhoneNumbField.Name = "PhoneNumbField";
-            this.PhoneNumbField.Size = new System.Drawing.Size(167, 21);
-            this.PhoneNumbField.TabIndex = 20;
+            this.label3.Text = "Phone Number :";
             // 
             // label2
             // 
@@ -129,20 +94,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 15);
+            this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Full Name";
-            // 
-            // FullNameField
-            // 
-            this.FullNameField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.FullNameField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FullNameField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FullNameField.ForeColor = System.Drawing.Color.Black;
-            this.FullNameField.Location = new System.Drawing.Point(107, 77);
-            this.FullNameField.Name = "FullNameField";
-            this.FullNameField.Size = new System.Drawing.Size(167, 21);
-            this.FullNameField.TabIndex = 18;
+            this.label2.Text = "Full Name :";
             // 
             // label4
             // 
@@ -150,35 +104,9 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 15);
+            this.label4.Size = new System.Drawing.Size(72, 15);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Username";
-            // 
-            // UserNameField
-            // 
-            this.UserNameField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.UserNameField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserNameField.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameField.ForeColor = System.Drawing.Color.Black;
-            this.UserNameField.Location = new System.Drawing.Point(107, 38);
-            this.UserNameField.Name = "UserNameField";
-            this.UserNameField.Size = new System.Drawing.Size(167, 21);
-            this.UserNameField.TabIndex = 15;
-            // 
-            // ChangeBasicBtn
-            // 
-            this.ChangeBasicBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(146)))), ((int)(((byte)(255)))));
-            this.ChangeBasicBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeBasicBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChangeBasicBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.ChangeBasicBtn.Location = new System.Drawing.Point(107, 206);
-            this.ChangeBasicBtn.Name = "ChangeBasicBtn";
-            this.ChangeBasicBtn.Padding = new System.Windows.Forms.Padding(5);
-            this.ChangeBasicBtn.Size = new System.Drawing.Size(178, 34);
-            this.ChangeBasicBtn.TabIndex = 16;
-            this.ChangeBasicBtn.Text = "CHANGE";
-            this.ChangeBasicBtn.UseVisualStyleBackColor = false;
-            this.ChangeBasicBtn.Click += new System.EventHandler(this.ChangeBasicBtn_Click);
+            this.label4.Text = "Username :";
             // 
             // groupBox2
             // 
@@ -190,7 +118,7 @@
             this.groupBox2.Controls.Add(this.OldPasswordField);
             this.groupBox2.Controls.Add(this.ChangePasswordBtn);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(326, 74);
+            this.groupBox2.Location = new System.Drawing.Point(326, 43);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(291, 214);
             this.groupBox2.TabIndex = 24;
@@ -293,6 +221,46 @@
             this.LogoutBtn.UseVisualStyleBackColor = false;
             this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
+            // UserNameLabel
+            // 
+            this.UserNameLabel.AutoSize = true;
+            this.UserNameLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameLabel.Location = new System.Drawing.Point(113, 38);
+            this.UserNameLabel.Name = "UserNameLabel";
+            this.UserNameLabel.Size = new System.Drawing.Size(29, 15);
+            this.UserNameLabel.TabIndex = 24;
+            this.UserNameLabel.Text = "Null";
+            // 
+            // FNameLabel
+            // 
+            this.FNameLabel.AutoSize = true;
+            this.FNameLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FNameLabel.Location = new System.Drawing.Point(113, 77);
+            this.FNameLabel.Name = "FNameLabel";
+            this.FNameLabel.Size = new System.Drawing.Size(29, 15);
+            this.FNameLabel.TabIndex = 25;
+            this.FNameLabel.Text = "Null";
+            // 
+            // PNumberLabel
+            // 
+            this.PNumberLabel.AutoSize = true;
+            this.PNumberLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PNumberLabel.Location = new System.Drawing.Point(113, 117);
+            this.PNumberLabel.Name = "PNumberLabel";
+            this.PNumberLabel.Size = new System.Drawing.Size(29, 15);
+            this.PNumberLabel.TabIndex = 26;
+            this.PNumberLabel.Text = "Null";
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailLabel.Location = new System.Drawing.Point(113, 157);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(29, 15);
+            this.EmailLabel.TabIndex = 27;
+            this.EmailLabel.Text = "Null";
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,7 +269,6 @@
             this.Controls.Add(this.LogoutBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileForm";
             this.Text = "SettingsForm";
@@ -310,23 +277,15 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox FullNameField;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox UserNameField;
-        private System.Windows.Forms.Button ChangeBasicBtn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox EmailField;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox PhoneNumbField;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ConfirmPasswordField;
@@ -336,5 +295,9 @@
         private System.Windows.Forms.TextBox OldPasswordField;
         private System.Windows.Forms.Button ChangePasswordBtn;
         private System.Windows.Forms.Button LogoutBtn;
+        private System.Windows.Forms.Label FNameLabel;
+        private System.Windows.Forms.Label UserNameLabel;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.Label PNumberLabel;
     }
 }
